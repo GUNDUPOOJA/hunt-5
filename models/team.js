@@ -47,14 +47,28 @@ module.exports = (db, DataTypes) => {
       },
     },
   
-    
-    teamId: {
-            type: DataTypes.INTEGER,
-            notEmpty: true,
-            primaryKey: true,
-            allowIncrement: true
-
+    age: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
+      required: true,
+      validate: {
+        max: {
+          args: 100,
+          msg: 'Age must be 100 or less.',
         },
+        min: {
+          args: 1,
+          msg: 'Age must be 1 or more.',
+        },
+      },
+    },
+    // teamId: {
+    //         type: DataTypes.INTEGER,
+    //         notEmpty: true,
+    //         primaryKey: true,
+    //         allowIncrement: true
+
+    //     },
     
     
     
